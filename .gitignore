@@ -1,0 +1,12 @@
+.superpowers/
+.godot/
+assets_work/
+outputs/
+.agents/skills/game-assets/.meow_art/
+build/*
+!build/.gdignore
+.env
+AGENTS.md
+__pycache__/
+*.pyc
+.DS_Store

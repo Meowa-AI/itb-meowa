@@ -1,0 +1,474 @@
+{
+  "source": "assets/ui/generated_hud_textless",
+  "meowa_general_output": "outputs/ui_pixel_meowa/general",
+  "meowa_icon_pack_output": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01",
+  "meowa_status_pack_output": "outputs/ui_pixel_meowa/status_pack/ui_pixel_status_pack_01",
+  "status_map": {
+    "13_power_slot_full_framed.png": "sprite_00.png",
+    "14_power_slot_empty_framed.png": "sprite_01.png",
+    "21_pip_full_round.png": "sprite_02.png",
+    "22_pip_empty_round.png": "sprite_03.png"
+  },
+  "status_extras": {
+    "extra_status_full_cross_cell.png": "sprite_04.png",
+    "extra_status_empty_cross_cell.png": "sprite_05.png",
+    "extra_status_full_diamond.png": "sprite_06.png",
+    "extra_status_empty_diamond.png": "sprite_07.png"
+  },
+  "icon_map": {
+    "23_icon_lightning.png": "sprite_00.png",
+    "24_icon_move_arrows.png": "sprite_01.png",
+    "25_icon_attack_swords.png": "sprite_02.png",
+    "26_icon_repair_plus.png": "sprite_03.png",
+    "27_icon_undo_arrow.png": "sprite_04.png",
+    "28_icon_hourglass.png": "sprite_05.png",
+    "29_icon_play_triangle.png": "sprite_06.png",
+    "30_icon_shield.png": "sprite_07.png",
+    "31_icon_objective_diamond.png": "sprite_08.png",
+    "32_icon_push_force.png": "sprite_09.png",
+    "33_icon_weapon_gun.png": "sprite_10.png",
+    "34_icon_vek_bug.png": "sprite_11.png"
+  },
+  "icon_extras": {
+    "extra_icon_defense_hex.png": "sprite_12.png",
+    "extra_icon_radar_scan.png": "sprite_13.png",
+    "extra_icon_jump_boot.png": "sprite_14.png"
+  },
+  "entries": [
+    {
+      "file": "01_wide_double_panel_frame.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/01_wide_double_panel_frame/ui_pixel_general_01_wide_double_panel_frame/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/01_wide_double_panel_frame.png",
+      "size": [
+        381,
+        225
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/01_wide_double_panel_frame_alt_01.png"
+      ]
+    },
+    {
+      "file": "02_grid_power_panel_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/02_grid_power_panel_blank/ui_pixel_general_02_grid_power_panel_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/02_grid_power_panel_blank.png",
+      "size": [
+        380,
+        76
+      ],
+      "alternates": []
+    },
+    {
+      "file": "03_wide_info_panel_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/03_wide_info_panel_blank/ui_pixel_general_03_wide_info_panel_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/03_wide_info_panel_blank.png",
+      "size": [
+        380,
+        148
+      ],
+      "alternates": []
+    },
+    {
+      "file": "04_turn_phase_panel_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/04_turn_phase_panel_blank/ui_pixel_general_04_turn_phase_panel_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/04_turn_phase_panel_blank.png",
+      "size": [
+        466,
+        87
+      ],
+      "alternates": []
+    },
+    {
+      "file": "05_mission_card_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/05_mission_card_blank/ui_pixel_general_05_mission_card_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/05_mission_card_blank.png",
+      "size": [
+        328,
+        164
+      ],
+      "alternates": []
+    },
+    {
+      "file": "06_portrait_frame_small_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/06_portrait_frame_small_blank/ui_pixel_general_06_portrait_frame_small_blank/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/06_portrait_frame_small_blank.png",
+      "size": [
+        136,
+        132
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/06_portrait_frame_small_blank_alt_01.png"
+      ]
+    },
+    {
+      "file": "07_portrait_frame_large_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/07_portrait_frame_large_blank/ui_pixel_general_07_portrait_frame_large_blank/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/07_portrait_frame_large_blank.png",
+      "size": [
+        222,
+        219
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/07_portrait_frame_large_blank_alt_01.png"
+      ]
+    },
+    {
+      "file": "08_portrait_frame_square_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/08_portrait_frame_square_blank/ui_pixel_general_08_portrait_frame_square_blank/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/08_portrait_frame_square_blank.png",
+      "size": [
+        208,
+        210
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/08_portrait_frame_square_blank_alt_01.png"
+      ]
+    },
+    {
+      "file": "09_mech_portrait_large.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/09_mech_portrait_large/ui_pixel_general_09_mech_portrait_large/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/09_mech_portrait_large.png",
+      "size": [
+        141,
+        131
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/09_mech_portrait_large_alt_01.png"
+      ]
+    },
+    {
+      "file": "10_vek_portrait_large.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/10_vek_portrait_large/ui_pixel_general_10_vek_portrait_large/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/10_vek_portrait_large.png",
+      "size": [
+        142,
+        132
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/10_vek_portrait_large_alt_01.png"
+      ]
+    },
+    {
+      "file": "11_mech_portrait_tile.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/11_mech_portrait_tile/ui_pixel_general_11_mech_portrait_tile/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/11_mech_portrait_tile.png",
+      "size": [
+        78,
+        70
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/11_mech_portrait_tile_alt_01.png"
+      ]
+    },
+    {
+      "file": "12_vek_portrait_tile.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/12_vek_portrait_tile/ui_pixel_general_12_vek_portrait_tile/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/12_vek_portrait_tile.png",
+      "size": [
+        62,
+        66
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/12_vek_portrait_tile_alt_01.png"
+      ]
+    },
+    {
+      "file": "13_power_slot_full_framed.png",
+      "kind": "status_pack",
+      "source": "outputs/ui_pixel_meowa/status_pack/ui_pixel_status_pack_01/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/status_mapped/13_power_slot_full_framed.png",
+      "size": [
+        68,
+        68
+      ]
+    },
+    {
+      "file": "14_power_slot_empty_framed.png",
+      "kind": "status_pack",
+      "source": "outputs/ui_pixel_meowa/status_pack/ui_pixel_status_pack_01/sprite_01.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/status_mapped/14_power_slot_empty_framed.png",
+      "size": [
+        69,
+        68
+      ]
+    },
+    {
+      "file": "15_selected_unit_card_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/15_selected_unit_card_blank/ui_pixel_general_15_selected_unit_card_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/15_selected_unit_card_blank.png",
+      "size": [
+        315,
+        146
+      ],
+      "alternates": []
+    },
+    {
+      "file": "16_button_command_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/16_button_command_blank/ui_pixel_general_16_button_command_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/16_button_command_blank.png",
+      "size": [
+        198,
+        90
+      ],
+      "alternates": []
+    },
+    {
+      "file": "17_button_attack_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/17_button_attack_blank/ui_pixel_general_17_button_attack_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/17_button_attack_blank.png",
+      "size": [
+        201,
+        90
+      ],
+      "alternates": []
+    },
+    {
+      "file": "18_button_end_turn_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/18_button_end_turn_blank/ui_pixel_general_18_button_end_turn_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/18_button_end_turn_blank.png",
+      "size": [
+        213,
+        90
+      ],
+      "alternates": []
+    },
+    {
+      "file": "19_button_system_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/19_button_system_blank/ui_pixel_general_19_button_system_blank/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/19_button_system_blank.png",
+      "size": [
+        111,
+        91
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/19_button_system_blank_alt_01.png"
+      ]
+    },
+    {
+      "file": "20_button_keycap_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/20_button_keycap_blank/ui_pixel_general_20_button_keycap_blank/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/20_button_keycap_blank.png",
+      "size": [
+        71,
+        83
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/20_button_keycap_blank_alt_01.png"
+      ]
+    },
+    {
+      "file": "21_pip_full_round.png",
+      "kind": "status_pack",
+      "source": "outputs/ui_pixel_meowa/status_pack/ui_pixel_status_pack_01/sprite_02.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/status_mapped/21_pip_full_round.png",
+      "size": [
+        40,
+        40
+      ]
+    },
+    {
+      "file": "22_pip_empty_round.png",
+      "kind": "status_pack",
+      "source": "outputs/ui_pixel_meowa/status_pack/ui_pixel_status_pack_01/sprite_03.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/status_mapped/22_pip_empty_round.png",
+      "size": [
+        42,
+        40
+      ]
+    },
+    {
+      "file": "23_icon_lightning.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/23_icon_lightning.png",
+      "size": [
+        32,
+        50
+      ]
+    },
+    {
+      "file": "24_icon_move_arrows.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_01.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/24_icon_move_arrows.png",
+      "size": [
+        50,
+        51
+      ]
+    },
+    {
+      "file": "25_icon_attack_swords.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_02.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/25_icon_attack_swords.png",
+      "size": [
+        52,
+        51
+      ]
+    },
+    {
+      "file": "26_icon_repair_plus.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_03.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/26_icon_repair_plus.png",
+      "size": [
+        49,
+        53
+      ]
+    },
+    {
+      "file": "27_icon_undo_arrow.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_04.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/27_icon_undo_arrow.png",
+      "size": [
+        41,
+        47
+      ]
+    },
+    {
+      "file": "28_icon_hourglass.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_05.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/28_icon_hourglass.png",
+      "size": [
+        41,
+        52
+      ]
+    },
+    {
+      "file": "29_icon_play_triangle.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_06.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/29_icon_play_triangle.png",
+      "size": [
+        42,
+        51
+      ]
+    },
+    {
+      "file": "30_icon_shield.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_07.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/30_icon_shield.png",
+      "size": [
+        45,
+        51
+      ]
+    },
+    {
+      "file": "31_icon_objective_diamond.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_08.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/31_icon_objective_diamond.png",
+      "size": [
+        46,
+        51
+      ]
+    },
+    {
+      "file": "32_icon_push_force.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_09.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/32_icon_push_force.png",
+      "size": [
+        52,
+        52
+      ]
+    },
+    {
+      "file": "33_icon_weapon_gun.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_10.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/33_icon_weapon_gun.png",
+      "size": [
+        56,
+        36
+      ]
+    },
+    {
+      "file": "34_icon_vek_bug.png",
+      "kind": "icon_pack",
+      "source": "outputs/ui_pixel_meowa/icon_pack/ui_pixel_icon_pack_01/sprite_11.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/icons_mapped/34_icon_vek_bug.png",
+      "size": [
+        47,
+        52
+      ]
+    },
+    {
+      "file": "35_button_command_wide_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/35_button_command_wide_blank/ui_pixel_general_35_button_command_wide_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/35_button_command_wide_blank.png",
+      "size": [
+        170,
+        86
+      ],
+      "alternates": []
+    },
+    {
+      "file": "36_button_attack_wide_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/36_button_attack_wide_blank/ui_pixel_general_36_button_attack_wide_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/36_button_attack_wide_blank.png",
+      "size": [
+        173,
+        87
+      ],
+      "alternates": []
+    },
+    {
+      "file": "37_button_blue_wide_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/37_button_blue_wide_blank/ui_pixel_general_37_button_blue_wide_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/37_button_blue_wide_blank.png",
+      "size": [
+        174,
+        86
+      ],
+      "alternates": []
+    },
+    {
+      "file": "38_button_system_wide_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/38_button_system_wide_blank/ui_pixel_general_38_button_system_wide_blank/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/38_button_system_wide_blank.png",
+      "size": [
+        138,
+        89
+      ],
+      "alternates": [
+        "assets/ui/generated_hud_pixel_meowa/alternates/38_button_system_wide_blank_alt_01.png"
+      ]
+    },
+    {
+      "file": "39_button_end_turn_wide_blank.png",
+      "kind": "pixel_general",
+      "source": "outputs/ui_pixel_meowa/general/39_button_end_turn_wide_blank/ui_pixel_general_39_button_end_turn_wide_blank_xlarge_default/sprite_00.png",
+      "mapped_to": "assets/ui/generated_hud_pixel_meowa/raw/39_button_end_turn_wide_blank.png",
+      "size": [
+        210,
+        89
+      ],
+      "alternates": []
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<title>$GODOT_PROJECT_NAME</title>
+		<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: white;
+	background-color: black;
+	overflow: hidden;
+	touch-action: none;
+	overscroll-behavior: none;
+}
+
+#viewport {
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+	background: #020406;
+	touch-action: none;
+}
+
+#world {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1280px;
+	height: 720px;
+	transform-origin: 0 0;
+	will-change: transform;
+}
+
+#canvas {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 1280px;
+	height: 720px;
+	background: black;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}
+
+#canvas:focus {
+	outline: none;
+}
+
+#status, #status-splash, #status-progress {
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+
+#status, #status-splash {
+	top: 0;
+	bottom: 0;
+}
+
+#status {
+	background-color: $GODOT_SPLASH_COLOR;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+}
+
+#status-splash {
+	max-height: 100%;
+	max-width: 100%;
+	margin: auto;
+}
+
+#status-splash.show-image--false {
+	display: none;
+}
+
+#status-splash.fullsize--true {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+#status-splash.use-filter--false {
+	image-rendering: pixelated;
+}
+
+#status-progress, #status-notice {
+	display: none;
+}
+
+#status-progress {
+	bottom: 10%;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#status-notice {
+	background-color: #5b3943;
+	border-radius: 0.5rem;
+	border: 1px solid #9b3943;
+	color: #e0e0e0;
+	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+	line-height: 1.3;
+	margin: 0 2rem;
+	overflow: hidden;
+	padding: 1rem;
+	text-align: center;
+	z-index: 1;
+}
+		</style>
+		$GODOT_HEAD_INCLUDE
+	</head>
+	<body>
+		<div id="viewport">
+			<div id="world">
+				<canvas id="canvas" width="1280" height="720">
+					Your browser does not support the canvas tag.
+				</canvas>
+			</div>
+		</div>
+
+		<noscript>
+			Your browser does not support JavaScript.
+		</noscript>
+
+		<div id="status">
+			<img id="status-splash" class="$GODOT_SPLASH_CLASSES" src="$GODOT_SPLASH" alt="">
+			<progress id="status-progress"></progress>
+			<div id="status-notice"></div>
+		</div>
+
+		<script src="$GODOT_URL"></script>
+		<script>
+const GODOT_CONFIG = $GODOT_CONFIG;
+const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
+const BASE_WIDTH = 1280;
+const BASE_HEIGHT = 720;
+const MIN_SCALE = 0.5;
+const MAX_SCALE = 4;
+const ZOOM_SENSITIVITY = 0.0015;
+const engine = new Engine(GODOT_CONFIG);
+
+(function () {
+	const viewport = document.getElementById('viewport');
+	const world = document.getElementById('world');
+	const canvas = document.getElementById('canvas');
+	let scale = 1;
+	let pan = { x: 0, y: 0 };
+	let panning = false;
+	let lastPointer = { x: 0, y: 0 };
+	let userAdjustedView = false;
+
+	function clampScale(value) {
+		return Math.min(MAX_SCALE, Math.max(MIN_SCALE, value));
+	}
+
+	function applyView() {
+		world.style.transform = `translate(${pan.x}px, ${pan.y}px) scale(${scale})`;
+	}
+
+	function setView(nextScale, nextPan) {
+		scale = clampScale(nextScale);
+		pan = nextPan;
+		applyView();
+	}
+
+	function fitView() {
+		const fitScale = clampScale(Math.min(window.innerWidth / BASE_WIDTH, window.innerHeight / BASE_HEIGHT));
+		setView(fitScale, {
+			x: Math.round((window.innerWidth - BASE_WIDTH * fitScale) / 2),
+			y: Math.round((window.innerHeight - BASE_HEIGHT * fitScale) / 2),
+		});
+	}
+
+	function zoomAt(clientX, clientY, factor) {
+		const nextScale = clampScale(scale * factor);
+		const worldX = (clientX - pan.x) / scale;
+		const worldY = (clientY - pan.y) / scale;
+		setView(nextScale, {
+			x: clientX - worldX * nextScale,
+			y: clientY - worldY * nextScale,
+		});
+	}
+
+	function isPanGesture(event) {
+		return event.button === 1 || event.altKey;
+	}
+
+	fitView();
+
+	window.addEventListener('resize', () => {
+		if (!userAdjustedView) {
+			fitView();
+		}
+	});
+
+	viewport.addEventListener('wheel', (event) => {
+		userAdjustedView = true;
+		zoomAt(event.clientX, event.clientY, Math.exp(-event.deltaY * ZOOM_SENSITIVITY));
+		event.preventDefault();
+		event.stopPropagation();
+	}, { passive: false, capture: true });
+
+	viewport.addEventListener('pointerdown', (event) => {
+		if (!isPanGesture(event)) {
+			canvas.focus();
+			return;
+		}
+		userAdjustedView = true;
+		panning = true;
+		lastPointer = { x: event.clientX, y: event.clientY };
+		viewport.setPointerCapture(event.pointerId);
+		event.preventDefault();
+		event.stopPropagation();
+	}, true);
+
+	viewport.addEventListener('pointermove', (event) => {
+		if (!panning) {
+			return;
+		}
+		pan = {
+			x: pan.x + event.clientX - lastPointer.x,
+			y: pan.y + event.clientY - lastPointer.y,
+		};
+		lastPointer = { x: event.clientX, y: event.clientY };
+		applyView();
+		event.preventDefault();
+		event.stopPropagation();
+	}, true);
+
+	window.addEventListener('pointerup', (event) => {
+		if (!panning) {
+			return;
+		}
+		panning = false;
+		if (viewport.hasPointerCapture(event.pointerId)) {
+			viewport.releasePointerCapture(event.pointerId);
+		}
+		event.preventDefault();
+		event.stopPropagation();
+	}, true);
+
+	viewport.addEventListener('auxclick', (event) => {
+		if (event.button === 1) {
+			event.preventDefault();
+		}
+	}, true);
+
+	const statusOverlay = document.getElementById('status');
+	const statusProgress = document.getElementById('status-progress');
+	const statusNotice = document.getElementById('status-notice');
+
+	let initializing = true;
+	let statusMode = '';
+
+	function setStatusMode(mode) {
+		if (statusMode === mode || !initializing) {
+			return;
+		}
+		if (mode === 'hidden') {
+			statusOverlay.remove();
+			initializing = false;
+			return;
+		}
+		statusOverlay.style.visibility = 'visible';
+		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+		statusMode = mode;
+	}
+
+	function setStatusNotice(text) {
+		while (statusNotice.lastChild) {
+			statusNotice.removeChild(statusNotice.lastChild);
+		}
+		const lines = text.split('\n');
+		lines.forEach((line) => {
+			statusNotice.appendChild(document.createTextNode(line));
+			statusNotice.appendChild(document.createElement('br'));
+		});
+	}
+
+	function displayFailureNotice(err) {
+		console.error(err);
+		if (err instanceof Error) {
+			setStatusNotice(err.message);
+		} else if (typeof err === 'string') {
+			setStatusNotice(err);
+		} else {
+			setStatusNotice('An unknown error occurred.');
+		}
+		setStatusMode('notice');
+		initializing = false;
+	}
+
+	const missing = Engine.getMissingFeatures({
+		threads: GODOT_THREADS_ENABLED,
+	});
+
+	if (missing.length !== 0) {
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+			let serviceWorkerRegistrationPromise;
+			try {
+				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+			} catch (err) {
+				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+			}
+			Promise.race([
+				serviceWorkerRegistrationPromise.then((registration) => {
+					if (registration != null) {
+						return Promise.reject(new Error('Service worker already exists.'));
+					}
+					return registration;
+				}).then(() => engine.installServiceWorker()),
+				new Promise((resolve) => {
+					setTimeout(() => resolve(), 2000);
+				}),
+			]).then(() => {
+				window.location.reload();
+			}).catch((err) => {
+				console.error('Error while registering service worker:', err);
+			});
+		} else {
+			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			displayFailureNotice(missingMsg + missing.join('\n'));
+		}
+	} else {
+		setStatusMode('progress');
+		engine.startGame({
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					statusProgress.value = current;
+					statusProgress.max = total;
+				} else {
+					statusProgress.removeAttribute('value');
+					statusProgress.removeAttribute('max');
+				}
+			},
+		}).then(() => {
+			setStatusMode('hidden');
+		}, displayFailureNotice);
+	}
+}());
+		</script>
+	</body>
+</html>

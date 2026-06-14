@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>ItB Demo · 测试台</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0b1018; color: #e0ecf5;
+               font: 14px/1.5 system-ui, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  #wrap { display: flex; height: 100%; }
+  #game-pane { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  #game-bar { display: flex; align-items: center; gap: 10px; padding: 6px 10px;
+              background: #121a26; border-bottom: 1px solid #1f2c3d; }
+  #game-bar .title { font-weight: 600; color: #73f2bb; }
+  #game-bar .dim { color: #5c7186; font-size: 12px; }
+  #game-bar button { margin-left: auto; }
+  iframe { flex: 1; border: 0; width: 100%; background: #000; }
+  #chat { width: 380px; display: flex; flex-direction: column;
+          background: #0e1520; border-left: 1px solid #1f2c3d; }
+  #chat-head { padding: 10px 14px; background: #121a26; border-bottom: 1px solid #1f2c3d;
+               font-weight: 600; }
+  #chat-head .dim { font-weight: 400; font-size: 12px; color: #5c7186; }
+  #msgs { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+  .msg { max-width: 92%; padding: 8px 11px; border-radius: 10px; white-space: pre-wrap;
+         word-break: break-word; }
+  .msg .meta { font-size: 11px; color: #5c7186; margin-bottom: 3px; }
+  .msg.user { align-self: flex-end; background: #1d3a5f; border-bottom-right-radius: 3px; }
+  .msg.assistant { align-self: flex-start; background: #16222f; border: 1px solid #233448;
+                   border-bottom-left-radius: 3px; }
+  #attach-row { display: none; gap: 8px; padding: 8px 10px 0; flex-wrap: wrap;
+                border-top: 1px solid #1f2c3d; }
+  #attach-row.has { display: flex; }
+  #attach-row.has + #input-row { border-top: 0; }
+  .attach { position: relative; }
+  .attach img { height: 56px; border-radius: 6px; border: 1px solid #2a3b50; display: block; }
+  .attach button { position: absolute; top: -7px; right: -7px; width: 18px; height: 18px;
+                   padding: 0; line-height: 15px; border-radius: 50%; font-size: 11px; }
+  .msg img.chat-img { max-width: 100%; border-radius: 6px; margin-top: 6px; display: block;
+                      cursor: zoom-in; }
+  #input-row { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #1f2c3d; }
+  textarea { flex: 1; resize: none; height: 64px; background: #121a26; color: #e0ecf5;
+             border: 1px solid #2a3b50; border-radius: 8px; padding: 8px; font: inherit; }
+  textarea:focus { outline: none; border-color: #3f6e95; }
+  button { background: #1d3a5f; color: #cfe6ff; border: 1px solid #34557e; border-radius: 8px;
+           padding: 6px 14px; cursor: pointer; font: inherit; }
+  button:hover { background: #25497a; }
+  #status { font-size: 11px; color: #5c7186; padding: 0 12px 8px; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="game-pane">
+    <div id="game-bar">
+      <span class="title">ItB Demo</span>
+      <span class="dim">游戏与聊天相互独立——重载游戏不会丢失聊天</span>
+      <button id="reload">↻ 重载游戏</button>
+    </div>
+    <iframe id="game" src="/index.html" allow="autoplay; fullscreen"></iframe>
+  </div>
+  <div id="chat">
+    <div id="chat-head">Claude Code 对话 <span class="dim">· 经由 serve_web.py 转发到终端会话</span></div>
+    <div id="msgs"></div>
+    <div id="status"></div>
+    <div id="attach-row"></div>
+    <div id="input-row">
+      <textarea id="input" placeholder="输入消息，Enter 发送，Shift+Enter 换行，Ctrl+V 粘贴截图"></textarea>
+      <button id="send">发送</button>
+    </div>
+  </div>
+</div>
+<script>
+const msgs = document.getElementById('msgs');
+const input = document.getElementById('input');
+const status = document.getElementById('status');
+const attachRow = document.getElementById('attach-row');
+let lastId = -1;
+let pending = [];  // 已上传待发送的图片 [{name, url}]
+
+function imgUrl(path) {
+  return '/chat-uploads/' + encodeURIComponent(path.split('/').pop());
+}
+
+function render(m) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + (m.role === 'user' ? 'user' : 'assistant');
+  const who = m.role === 'user' ? '我' : 'Claude';
+  div.innerHTML = '<div class="meta">' + who + ' · ' + m.ts + '</div>';
+  div.appendChild(document.createTextNode(m.text));
+  for (const p of m.images || []) {
+    const img = document.createElement('img');
+    img.className = 'chat-img';
+    img.src = imgUrl(p);
+    img.onclick = () => window.open(img.src);
+    div.appendChild(img);
+  }
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function renderAttachRow() {
+  attachRow.innerHTML = '';
+  attachRow.classList.toggle('has', pending.length > 0);
+  pending.forEach((p, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'attach';
+    const img = document.createElement('img');
+    img.src = p.url;
+    const rm = document.createElement('button');
+    rm.textContent = '×';
+    rm.title = '移除';
+    rm.onclick = () => { pending.splice(i, 1); renderAttachRow(); };
+    chip.append(img, rm);
+    attachRow.appendChild(chip);
+  });
+}
+
+async function uploadImage(blob) {
+  status.textContent = '图片上传中…';
+  try {
+    const r = await fetch('/api/chat/upload', {
+      method: 'POST',
+      headers: {'Content-Type': blob.type},
+      body: blob
+    });
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    pending.push({name: data.name, url: '/chat-uploads/' + data.name});
+    renderAttachRow();
+    status.textContent = '';
+  } catch (e) {
+    status.textContent = '⚠ 图片上传失败';
+  }
+}
+
+input.addEventListener('paste', e => {
+  const items = [...(e.clipboardData ? e.clipboardData.items : [])]
+    .filter(it => it.type.startsWith('image/'));
+  if (!items.length) return;
+  e.preventDefault();
+  for (const it of items) {
+    const blob = it.getAsFile();
+    if (blob) uploadImage(blob);
+  }
+});
+
+async function poll() {
+  try {
+    const r = await fetch('/api/chat/log?after=' + lastId);
+    const data = await r.json();
+    for (const m of data.messages) { render(m); lastId = m.id; }
+    status.textContent = '';
+  } catch (e) {
+    status.textContent = '⚠ 服务器连接失败——确认 tools/serve_web.sh 在运行';
+  }
+}
+
+async function send() {
+  const text = input.value.trim();
+  const images = pending.map(p => p.name);
+  if (!text && !images.length) return;
+  input.value = '';
+  try {
+    const r = await fetch('/api/chat/send', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({text, images})
+    });
+    if (!r.ok) throw new Error(r.status);
+    pending = [];
+    renderAttachRow();
+    await poll();
+  } catch (e) {
+    status.textContent = '⚠ 发送失败';
+    input.value = text;
+  }
+}
+
+document.getElementById('send').onclick = send;
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+document.getElementById('reload').onclick = () => {
+  document.getElementById('game').src = '/index.html?t=' + Date.now();
+};
+
+poll();
+setInterval(poll, 1500);
+</script>
+</body>
+</html>

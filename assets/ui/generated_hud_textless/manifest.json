@@ -1,0 +1,555 @@
+{
+  "source_white": "ui_kit_white_source.jpg",
+  "source_meowa_cutout_raw": "ui_kit_meowa_cutout_raw.png",
+  "alpha_clean_cutout": "ui_kit_meowa_cutout_alpha_clean.png",
+  "alpha_cutoff": 220,
+  "component_count": 39,
+  "components": [
+    {
+      "file": "01_wide_double_panel_frame.png",
+      "name": "wide_double_panel_frame",
+      "source_box": [
+        5,
+        7,
+        391,
+        232
+      ],
+      "size": [
+        381,
+        225
+      ]
+    },
+    {
+      "file": "02_grid_power_panel_blank.png",
+      "name": "grid_power_panel_blank",
+      "source_box": [
+        8,
+        8,
+        388,
+        84
+      ],
+      "size": [
+        380,
+        76
+      ]
+    },
+    {
+      "file": "03_wide_info_panel_blank.png",
+      "name": "wide_info_panel_blank",
+      "source_box": [
+        8,
+        82,
+        388,
+        230
+      ],
+      "size": [
+        380,
+        148
+      ]
+    },
+    {
+      "file": "04_turn_phase_panel_blank.png",
+      "name": "turn_phase_panel_blank",
+      "source_box": [
+        454,
+        7,
+        924,
+        94
+      ],
+      "size": [
+        466,
+        87
+      ]
+    },
+    {
+      "file": "05_mission_card_blank.png",
+      "name": "mission_card_blank",
+      "source_box": [
+        1040,
+        8,
+        1370,
+        172
+      ],
+      "size": [
+        328,
+        164
+      ]
+    },
+    {
+      "file": "06_portrait_frame_small_blank.png",
+      "name": "portrait_frame_small_blank",
+      "source_box": [
+        8,
+        263,
+        144,
+        395
+      ],
+      "size": [
+        136,
+        132
+      ]
+    },
+    {
+      "file": "07_portrait_frame_large_blank.png",
+      "name": "portrait_frame_large_blank",
+      "source_box": [
+        164,
+        263,
+        386,
+        482
+      ],
+      "size": [
+        222,
+        219
+      ]
+    },
+    {
+      "file": "08_portrait_frame_square_blank.png",
+      "name": "portrait_frame_square_blank",
+      "source_box": [
+        1154,
+        227,
+        1362,
+        440
+      ],
+      "size": [
+        208,
+        210
+      ]
+    },
+    {
+      "file": "09_mech_portrait_large.png",
+      "name": "mech_portrait_large",
+      "source_box": [
+        398,
+        292,
+        542,
+        424
+      ],
+      "size": [
+        141,
+        131
+      ]
+    },
+    {
+      "file": "10_vek_portrait_large.png",
+      "name": "vek_portrait_large",
+      "source_box": [
+        570,
+        290,
+        716,
+        426
+      ],
+      "size": [
+        142,
+        132
+      ]
+    },
+    {
+      "file": "11_mech_portrait_tile.png",
+      "name": "mech_portrait_tile",
+      "source_box": [
+        880,
+        320,
+        960,
+        390
+      ],
+      "size": [
+        78,
+        70
+      ]
+    },
+    {
+      "file": "12_vek_portrait_tile.png",
+      "name": "vek_portrait_tile",
+      "source_box": [
+        977,
+        320,
+        1040,
+        390
+      ],
+      "size": [
+        62,
+        66
+      ]
+    },
+    {
+      "file": "13_power_slot_full_framed.png",
+      "name": "power_slot_full_framed",
+      "source_box": [
+        9,
+        518,
+        77,
+        586
+      ],
+      "size": [
+        68,
+        68
+      ]
+    },
+    {
+      "file": "14_power_slot_empty_framed.png",
+      "name": "power_slot_empty_framed",
+      "source_box": [
+        84,
+        518,
+        153,
+        586
+      ],
+      "size": [
+        69,
+        68
+      ]
+    },
+    {
+      "file": "15_selected_unit_card_blank.png",
+      "name": "selected_unit_card_blank",
+      "source_box": [
+        6,
+        598,
+        321,
+        744
+      ],
+      "size": [
+        315,
+        146
+      ]
+    },
+    {
+      "file": "16_button_command_blank.png",
+      "name": "button_command_blank",
+      "source_box": [
+        398,
+        460,
+        596,
+        550
+      ],
+      "size": [
+        198,
+        90
+      ]
+    },
+    {
+      "file": "17_button_attack_blank.png",
+      "name": "button_attack_blank",
+      "source_box": [
+        613,
+        460,
+        814,
+        550
+      ],
+      "size": [
+        201,
+        90
+      ]
+    },
+    {
+      "file": "18_button_end_turn_blank.png",
+      "name": "button_end_turn_blank",
+      "source_box": [
+        831,
+        460,
+        1044,
+        550
+      ],
+      "size": [
+        213,
+        90
+      ]
+    },
+    {
+      "file": "19_button_system_blank.png",
+      "name": "button_system_blank",
+      "source_box": [
+        1063,
+        459,
+        1174,
+        550
+      ],
+      "size": [
+        111,
+        91
+      ]
+    },
+    {
+      "file": "20_button_keycap_blank.png",
+      "name": "button_keycap_blank",
+      "source_box": [
+        1206,
+        461,
+        1277,
+        544
+      ],
+      "size": [
+        71,
+        83
+      ]
+    },
+    {
+      "file": "21_pip_full_round.png",
+      "name": "pip_full_round",
+      "source_box": [
+        397,
+        584,
+        437,
+        624
+      ],
+      "size": [
+        40,
+        40
+      ]
+    },
+    {
+      "file": "22_pip_empty_round.png",
+      "name": "pip_empty_round",
+      "source_box": [
+        461,
+        584,
+        503,
+        624
+      ],
+      "size": [
+        42,
+        40
+      ]
+    },
+    {
+      "file": "23_icon_lightning.png",
+      "name": "icon_lightning",
+      "source_box": [
+        532,
+        576,
+        569,
+        626
+      ],
+      "size": [
+        32,
+        50
+      ]
+    },
+    {
+      "file": "24_icon_move_arrows.png",
+      "name": "icon_move_arrows",
+      "source_box": [
+        588,
+        576,
+        638,
+        627
+      ],
+      "size": [
+        50,
+        51
+      ]
+    },
+    {
+      "file": "25_icon_attack_swords.png",
+      "name": "icon_attack_swords",
+      "source_box": [
+        666,
+        575,
+        718,
+        627
+      ],
+      "size": [
+        52,
+        51
+      ]
+    },
+    {
+      "file": "26_icon_repair_plus.png",
+      "name": "icon_repair_plus",
+      "source_box": [
+        743,
+        575,
+        792,
+        628
+      ],
+      "size": [
+        49,
+        53
+      ]
+    },
+    {
+      "file": "27_icon_undo_arrow.png",
+      "name": "icon_undo_arrow",
+      "source_box": [
+        822,
+        580,
+        864,
+        627
+      ],
+      "size": [
+        41,
+        47
+      ]
+    },
+    {
+      "file": "28_icon_hourglass.png",
+      "name": "icon_hourglass",
+      "source_box": [
+        884,
+        575,
+        926,
+        627
+      ],
+      "size": [
+        41,
+        52
+      ]
+    },
+    {
+      "file": "29_icon_play_triangle.png",
+      "name": "icon_play_triangle",
+      "source_box": [
+        948,
+        575,
+        990,
+        627
+      ],
+      "size": [
+        42,
+        51
+      ]
+    },
+    {
+      "file": "30_icon_shield.png",
+      "name": "icon_shield",
+      "source_box": [
+        1018,
+        575,
+        1064,
+        628
+      ],
+      "size": [
+        45,
+        51
+      ]
+    },
+    {
+      "file": "31_icon_objective_diamond.png",
+      "name": "icon_objective_diamond",
+      "source_box": [
+        1088,
+        576,
+        1134,
+        627
+      ],
+      "size": [
+        46,
+        51
+      ]
+    },
+    {
+      "file": "32_icon_push_force.png",
+      "name": "icon_push_force",
+      "source_box": [
+        1158,
+        576,
+        1210,
+        628
+      ],
+      "size": [
+        52,
+        52
+      ]
+    },
+    {
+      "file": "33_icon_weapon_gun.png",
+      "name": "icon_weapon_gun",
+      "source_box": [
+        1233,
+        581,
+        1290,
+        621
+      ],
+      "size": [
+        56,
+        36
+      ]
+    },
+    {
+      "file": "34_icon_vek_bug.png",
+      "name": "icon_vek_bug",
+      "source_box": [
+        1309,
+        576,
+        1356,
+        628
+      ],
+      "size": [
+        47,
+        52
+      ]
+    },
+    {
+      "file": "35_button_command_wide_blank.png",
+      "name": "button_command_wide_blank",
+      "source_box": [
+        398,
+        654,
+        570,
+        740
+      ],
+      "size": [
+        170,
+        86
+      ]
+    },
+    {
+      "file": "36_button_attack_wide_blank.png",
+      "name": "button_attack_wide_blank",
+      "source_box": [
+        570,
+        653,
+        743,
+        740
+      ],
+      "size": [
+        173,
+        87
+      ]
+    },
+    {
+      "file": "37_button_blue_wide_blank.png",
+      "name": "button_blue_wide_blank",
+      "source_box": [
+        751,
+        654,
+        925,
+        740
+      ],
+      "size": [
+        174,
+        86
+      ]
+    },
+    {
+      "file": "38_button_system_wide_blank.png",
+      "name": "button_system_wide_blank",
+      "source_box": [
+        1013,
+        653,
+        1151,
+        742
+      ],
+      "size": [
+        138,
+        89
+      ]
+    },
+    {
+      "file": "39_button_end_turn_wide_blank.png",
+      "name": "button_end_turn_wide_blank",
+      "source_box": [
+        1154,
+        653,
+        1364,
+        742
+      ],
+      "size": [
+        210,
+        89
+      ]
+    }
+  ]
+}

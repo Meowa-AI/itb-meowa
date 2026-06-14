@@ -1,0 +1,301 @@
+{
+  "source_white_atlas": "ui_atlas_white.jpg",
+  "source_cutout_atlas": "ui_atlas_cutout.png",
+  "component_count": 21,
+  "components": [
+    {
+      "file": "01_grid_power_panel.png",
+      "name": "grid_power_panel",
+      "source_box": [
+        4,
+        6,
+        392,
+        86
+      ],
+      "size": [
+        387,
+        80
+      ]
+    },
+    {
+      "file": "02_turn_phase_panel.png",
+      "name": "turn_phase_panel",
+      "source_box": [
+        451,
+        4,
+        924,
+        92
+      ],
+      "size": [
+        473,
+        88
+      ]
+    },
+    {
+      "file": "03_mission_objective_card.png",
+      "name": "mission_objective_card",
+      "source_box": [
+        1039,
+        7,
+        1372,
+        173
+      ],
+      "size": [
+        333,
+        166
+      ]
+    },
+    {
+      "file": "04_unit_tile_mech_large.png",
+      "name": "unit_tile_mech_large",
+      "source_box": [
+        9,
+        98,
+        101,
+        189
+      ],
+      "size": [
+        92,
+        91
+      ]
+    },
+    {
+      "file": "05_unit_tile_vek_large.png",
+      "name": "unit_tile_vek_large",
+      "source_box": [
+        107,
+        99,
+        202,
+        189
+      ],
+      "size": [
+        95,
+        90
+      ]
+    },
+    {
+      "file": "06_unit_tile_mech_small.png",
+      "name": "unit_tile_mech_small",
+      "source_box": [
+        7,
+        515,
+        78,
+        588
+      ],
+      "size": [
+        71,
+        72
+      ]
+    },
+    {
+      "file": "07_unit_tile_vek_small.png",
+      "name": "unit_tile_vek_small",
+      "source_box": [
+        82,
+        515,
+        153,
+        588
+      ],
+      "size": [
+        71,
+        73
+      ]
+    },
+    {
+      "file": "08_unit_selected_card.png",
+      "name": "unit_selected_card",
+      "source_box": [
+        4,
+        590,
+        320,
+        746
+      ],
+      "size": [
+        316,
+        156
+      ]
+    },
+    {
+      "file": "09_icon_lightning.png",
+      "name": "icon_lightning",
+      "source_box": [
+        1173,
+        534,
+        1210,
+        580
+      ],
+      "size": [
+        33,
+        45
+      ]
+    },
+    {
+      "file": "10_icon_shield.png",
+      "name": "icon_shield",
+      "source_box": [
+        1217,
+        534,
+        1261,
+        581
+      ],
+      "size": [
+        40,
+        47
+      ]
+    },
+    {
+      "file": "11_icon_attack.png",
+      "name": "icon_attack",
+      "source_box": [
+        1266,
+        536,
+        1309,
+        580
+      ],
+      "size": [
+        41,
+        42
+      ]
+    },
+    {
+      "file": "12_icon_push.png",
+      "name": "icon_push",
+      "source_box": [
+        1313,
+        536,
+        1358,
+        580
+      ],
+      "size": [
+        45,
+        40
+      ]
+    },
+    {
+      "file": "13_icon_objective.png",
+      "name": "icon_objective",
+      "source_box": [
+        1172,
+        587,
+        1210,
+        631
+      ],
+      "size": [
+        38,
+        43
+      ]
+    },
+    {
+      "file": "14_icon_repair.png",
+      "name": "icon_repair",
+      "source_box": [
+        1216,
+        587,
+        1261,
+        633
+      ],
+      "size": [
+        44,
+        42
+      ]
+    },
+    {
+      "file": "15_icon_end_turn.png",
+      "name": "icon_end_turn",
+      "source_box": [
+        1268,
+        587,
+        1308,
+        633
+      ],
+      "size": [
+        33,
+        43
+      ]
+    },
+    {
+      "file": "16_icon_vek.png",
+      "name": "icon_vek",
+      "source_box": [
+        1313,
+        587,
+        1358,
+        633
+      ],
+      "size": [
+        44,
+        42
+      ]
+    },
+    {
+      "file": "17_move_button.png",
+      "name": "move_button",
+      "source_box": [
+        394,
+        650,
+        568,
+        756
+      ],
+      "size": [
+        174,
+        104
+      ]
+    },
+    {
+      "file": "18_attack_button.png",
+      "name": "attack_button",
+      "source_box": [
+        568,
+        650,
+        748,
+        756
+      ],
+      "size": [
+        180,
+        105
+      ]
+    },
+    {
+      "file": "19_repair_button.png",
+      "name": "repair_button",
+      "source_box": [
+        746,
+        650,
+        930,
+        756
+      ],
+      "size": [
+        184,
+        104
+      ]
+    },
+    {
+      "file": "20_undo_button.png",
+      "name": "undo_button",
+      "source_box": [
+        1008,
+        650,
+        1152,
+        760
+      ],
+      "size": [
+        144,
+        108
+      ]
+    },
+    {
+      "file": "21_end_turn_button.png",
+      "name": "end_turn_button",
+      "source_box": [
+        1150,
+        650,
+        1371,
+        760
+      ],
+      "size": [
+        220,
+        110
+      ]
+    }
+  ]
+}
